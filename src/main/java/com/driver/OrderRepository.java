@@ -1,5 +1,6 @@
 package com.driver;
 
+import io.swagger.models.auth.In;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -9,17 +10,15 @@ import java.util.List;
 
 @Repository
 public class OrderRepository {
+
     HashMap<String,Order> orderHashMap = new HashMap<>();
     HashMap<String,DeliveryPartner> deliveryPartnerHashMap = new HashMap<>();
     HashMap<DeliveryPartner, List<Order>> orderPartnerPairHashMap = new HashMap<>();
     HashSet<Order> assigned = new HashSet<>();
-
-
-    public void addOrder(Order order) {
+    public void addOrder(Order order){
         orderHashMap.put(order.getId(),order);
     }
-
-    public void addPartner(DeliveryPartner deliveryPartner) {
+    public void addDeliveryPartner(DeliveryPartner deliveryPartner){
         deliveryPartnerHashMap.put(deliveryPartner.getId(),deliveryPartner);
     }
     public void addOrderPartnerPair(String orderId,String partnerId){

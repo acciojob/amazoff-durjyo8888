@@ -7,18 +7,16 @@ import java.util.List;
 
 @Service
 public class OrderService {
-    @Autowired
-    OrderRepository orderRepository;
 
-    public void addOrder(Order order) {
+    OrderRepository orderRepository = new OrderRepository();
+
+    public void addOrder(Order order){
         orderRepository.addOrder(order);
     }
-
-    public void addPartner(String partnerId) {
+    public void addDeliveryPartner(String partnerId){
         DeliveryPartner deliveryPartner = new DeliveryPartner(partnerId);
-        orderRepository.addPartner(deliveryPartner);
+        orderRepository.addDeliveryPartner(deliveryPartner);
     }
-
     public void addOrderPartnerPair(String orderId, String partnerId){
         orderRepository.addOrderPartnerPair(orderId,partnerId);
     }
